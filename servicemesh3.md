@@ -5,11 +5,11 @@
 | Field | Value |
 |---|---|
 | **Document ID** | SEC-STD-SM-001 |
-| **Version** | 2.0 |
-| **Owner** | Enterprise Security Architecture |
+| **Version** | Draft |
+| **Owner** | Security Architecture |
 | **Approved By** | Security Governance Board |
 | **Classification** | Internal |
-| **Review Cycle** | Annual |
+| **Review Cycle** | Annual(TBD) |
 | **Control Framework** | Internal `SM-*` control catalog (NIST 800-53 r5 / CSF 2.0 crosswalk in [Appendix B](#appendix-b-control-to-framework-reference)) |
 | **Derived From** | NIST SP 800-204 series and NIST SP 800-207 (Zero Trust) |
 
@@ -24,7 +24,6 @@
 5. [Minimum Production Baseline](#5-minimum-production-baseline)
 6. [Framework Compliance Mapping](#6-framework-compliance-mapping)
 7. [Governance, Exceptions and Roles](#7-governance-exceptions-and-roles)
-8. [References](#8-references)
 - [Appendix A. Approved Technology Categories](#appendix-a-approved-technology-categories)
 - [Appendix B. Control-to-Framework Reference](#appendix-b-control-to-framework-reference)
 - [Document Control and Approval](#document-control-and-approval)
@@ -42,10 +41,6 @@ Each control is stated once with a unique ID. [Appendix B](#appendix-b-control-t
 - Kubernetes clusters, containerized workloads, microservices, and APIs governed by a service mesh
 - Service mesh control planes and data planes
 - Single-cluster, multi-cluster, and hybrid / multi-cloud mesh deployments
-
-**Out of scope** (governed by separate enterprise standards, cross-referenced only):
-
-- Incident response and change management processes
 
 ---
 
@@ -313,27 +308,6 @@ Any deviation from a control MUST reference the specific control ID and be recor
 ### 7.4 Compliance Validation
 
 Compliance is validated through automated scanning, quarterly control reviews, architecture assessments, internal audits, and annual penetration testing. Evidence is retained per enterprise requirements.
-
----
-
-## 8. References
-
-Authoritative sources. Links verified current; items with no free public source are marked.
-
-| Reference | Version | Source |
-|---|---|---|
-| NIST SP 800-204 / 204A / 204B / 204C | 2019–21 | <https://csrc.nist.gov/pubs/sp/800/204/final> |
-| NIST SP 800-207 / 207A (Zero Trust; 207A = service mesh) | 2020 / 23 | <https://csrc.nist.gov/pubs/sp/800/207/final> |
-| NIST SP 800-53 (current release 5.2.0) | Rev 5 | <https://csrc.nist.gov/pubs/sp/800/53/r5/final> |
-| NIST Cybersecurity Framework | 2.0 (2024) | <https://www.nist.gov/cyberframework> |
-| CIS Kubernetes Benchmark | Current | <https://www.cisecurity.org/benchmark/kubernetes> |
-| CNCF Cloud Native Security Whitepaper | Current | <https://tag-security.cncf.io/community/resources/security-whitepaper/> |
-| OWASP Kubernetes Top 10 | 2022 | <https://owasp.org/www-project-kubernetes-top-ten/> |
-| PCI DSS | v4.0.1 | <https://www.pcisecuritystandards.org/document_library/> |
-| ISO/IEC 27001 | 2022 | *No free public source (ISO, paywalled)* |
-| SOC 2 (AICPA Trust Services Criteria) | TSC 2017/22 | *No free public source (AICPA)* |
-| HIPAA Security Rule (45 CFR Part 164) | Current | <https://www.hhs.gov/hipaa/for-professionals/security/index.html> |
-| Companion: Design Guide; Incident Response; Change Management | — | *Internal documents* |
 
 ---
 
