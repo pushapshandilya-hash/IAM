@@ -267,21 +267,6 @@ A tenant is any group sharing the mesh — a team, application, business unit, o
 
 > **Note:** namespaces give logical isolation, not hard isolation — they assume the shared node, kernel, and control plane are trustworthy. For untrusted or hostile tenants, namespaces are not enough; escalate to a separate cluster or mesh trust domain.
 
-### 4.14 CI/CD Pipeline Security (SM-CICD)
-
-The pipeline that builds and deploys mesh workloads and policy is itself a protected, identity-bound system.
-
-| ID | Control Requirement | Crit. |
-|---|---|---|
-| **SM-CICD-01** | Branch protection and peer review MUST precede any merge to protected branches. | High |
-| **SM-CICD-02** | Pipeline access MUST follow least privilege and pipeline-based access control (PBAC), using scoped, short-lived credentials. | Critical |
-| **SM-CICD-03** | Dependencies MUST be pinned and scanned (SCA); untrusted dependency sources are prohibited. | High |
-| **SM-CICD-04** | Build runners MUST be isolated; untrusted code MUST NOT execute in a privileged pipeline context (preventing poisoned pipeline execution). | High |
-| **SM-CICD-05** | Pipeline secrets MUST come from the approved secrets platform with rotation; secret scanning MUST run before merge. | Critical |
-| **SM-CICD-06** | Build artifacts and container images MUST be signed, and signatures MUST be verified at admission. | High |
-| **SM-CICD-07** | Third-party actions, plugins, and base images MUST be vetted and version-pinned. | High |
-| **SM-CICD-08** | Pipeline activity and security events MUST be logged to the enterprise SIEM. | High |
-| **SM-CICD-09** | Stage security gates (SAST, SCA, IaC, container, and DAST scans) MUST block promotion on policy failure. | High |
 
 ---
 
@@ -496,81 +481,7 @@ Isolation strength increases from logical (namespace) to physical (cluster) to i
 | Shared cluster, shared mesh | Soft (namespace) | Trusted internal teams |
 | Shared cluster, multiple meshes | Medium | Stronger control-plane separation |
 | Cluster per tenant | Hard | Untrusted or regulated tenants |
-| Federated multi-cluster | Hard (trust domains) | Geographic / business-unit isolation at scale |
-
-### C.3 CI/CD Risk Landscape — Why It Matters
-
-CI/CD systems hold direct paths to source, secrets, and production, which makes them high-value targets; recent supply-chain incidents show that a single compromised pipeline component can distribute malicious code at scale. The OWASP Top 10 CI/CD Security Risks frame the focus areas:
-
-| ID | Risk |
-|---|---|
-| CICD-SEC-1 | Insufficient flow control mechanisms |
-| CICD-SEC-2 | Inadequate identity and access management |
-| CICD-SEC-3 | Dependency chain abuse |
-| CICD-SEC-4 | Poisoned pipeline execution |
-| CICD-SEC-5 | Insufficient pipeline-based access controls |
-| CICD-SEC-6 | Insufficient credential hygiene |
-| CICD-SEC-7 | Insecure system configuration |
-| CICD-SEC-8 | Ungoverned use of third-party services |
-| CICD-SEC-9 | Improper artifact integrity validation |
-| CICD-SEC-10 | Insufficient logging and visibility |
-
-### C.4 Components at Risk
-
-- Source-code repositories and build configuration
-- Build servers, workers, and CI runners (often over-privileged and under-monitored)
-- Artifact and container registries
-- Deployment environments and orchestration tools (a path for lateral movement)
-
-### C.5 Challenges in CI/CD Security
-
-Pipeline complexity and interconnection; speed outpacing security checks; automation without automated guardrails; access control across large teams; secrets sprawl; supply-chain and SaaS-tool exposure; and unvetted third-party actions or plugins.
-
-### C.6 Types of CI/CD Pipelines
-
-| Type | Primary security consideration |
-|---|---|
-| Traditional | Trigger/secret access; build-environment and artifact integrity |
-| GitOps | Repo access control; secrets kept out of Git; agent compromise |
-| Container-based | Image scanning; registry hardening; runtime threats |
-| Serverless | Fine-grained IAM; shared-responsibility; privilege escalation |
-| Hybrid | Consistent policy and visibility across toolchains |
-
-*Service mesh deployments are typically GitOps + container-based, so those two rows carry the most weight.*
-
-### C.7 Security at Each Pipeline Stage
-
-| Stage | Security activities |
-|---|---|
-| Pre-commit | Secret scanning, linting, repository hardening |
-| Build | SAST, SCA, IaC scanning, container scanning and hardening |
-| Test | DAST, IAST, API security, misconfiguration checks |
-| Release | Artifact and image signing, SBOM generation |
-| Deploy | Admission-time signature verification, deploy gates, immutable infrastructure |
-| Operate | Runtime monitoring (CNAPP), logging to SIEM, vulnerability management, pen-testing |
-
-### C.8 Best Practices
-
-- Automate security scans with developer alerts; extend to runtime monitoring and SIEM/SOAR
-- Centralize secrets management with rotation; keep secrets out of code, images, and Git
-- Use immutable infrastructure and GitOps with full audit trails and drift detection
-- Enforce RBAC, separation of duties, and four-eyes approval for sensitive operations
-- Build a security-champions culture; train developers and run joint assessments
-
-### C.9 Shared Responsibilities
-
-| Layer | Owner |
-|---|---|
-| Code, access, secrets, configuration, and artifacts | Organization (always) |
-| Managed CI/CD platform and runtime infrastructure | Provider (for SaaS / managed services) |
-
-*The organization always owns code, access, and data regardless of the deployment model.*
-
-### C.10 Measuring Effectiveness
-
-**Security metrics:** vulnerability detection rate; mean time to remediate (MTTR); policy-compliance rate; security test coverage; and security-related build failures.
-
-**DORA delivery metrics** (to balance security against velocity): deployment frequency; lead time for changes; change-failure rate; and time to restore service.
+| Federated multi-cluster | Hard (trust domains) | Geographic / business-unit isolation at scale 
 
 ---
 
@@ -578,8 +489,8 @@ Pipeline complexity and interconnection; speed outpacing security checks; automa
 
 | Version | Date | Author / Note |
 |---|---|---|
-| 2.0 | YYYY-MM-DD | Security Architecture — control-catalog baseline |
-| 2.1 | YYYY-MM-DD | Added Multitenancy (SM-MT) and CI/CD Pipeline Security (SM-CICD) domains; Appendix C guidance |
+| 1.0 | YYYY-MM-DD | Security Architecture — control-catalog baseline |
+
 
 **Approval signatures:**
 
