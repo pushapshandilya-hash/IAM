@@ -67,10 +67,7 @@ This document uses MUST / SHOULD / MAY per RFC 2119. The **Crit.** column rates 
 | **mTLS Mode** | Mesh TLS posture: Permissive (plaintext + mTLS accepted) or Strict (mTLS only). |
 | **East-West / North-South** | East-west is service-to-service traffic within or between clusters; north-south is ingress/egress traffic crossing the mesh boundary. |
 | **Tenant / Multitenancy** | A tenant is a distinct consumer (team, application, business unit, or customer) sharing mesh infrastructure. Soft multitenancy isolates trusted tenants logically (namespaces); hard multitenancy isolates untrusted tenants physically (separate clusters or trust domains). |
-| **Pipeline / Artifact / SBOM** | A pipeline is the automated CI/CD workflow that builds, tests, and deploys workloads and policy. An artifact is a build output (e.g., container image, Helm chart) promoted through it; an SBOM is the artifact's software bill of materials. |
 | **Acronyms** | MFA (multi-factor authentication); SIEM (security information and event management); RBAC (role-based access control); PBAC (pipeline-based access controls); PKI (public-key infrastructure); HSM/KMS (hardware security module / key management service); mTLS (mutual TLS); NTP (network time protocol) .
-
----
 
 ## 3. Security Principles
 
