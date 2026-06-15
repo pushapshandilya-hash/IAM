@@ -44,7 +44,6 @@ Each control is stated once with a unique ID. [Appendix B](#appendix-b-control-t
 - Service mesh control planes and data planes
 - Single-cluster, multi-cluster, and hybrid / multi-cloud mesh deployments
 - Multitenant mesh deployments and tenant isolation
-- Security of the CI/CD pipeline that builds and deploys mesh workloads and policy (pipeline security, not change-management process)
 
 **Out of scope** (governed by separate enterprise standards, cross-referenced only):
 
@@ -69,7 +68,7 @@ This document uses MUST / SHOULD / MAY per RFC 2119. The **Crit.** column rates 
 | **East-West / North-South** | East-west is service-to-service traffic within or between clusters; north-south is ingress/egress traffic crossing the mesh boundary. |
 | **Tenant / Multitenancy** | A tenant is a distinct consumer (team, application, business unit, or customer) sharing mesh infrastructure. Soft multitenancy isolates trusted tenants logically (namespaces); hard multitenancy isolates untrusted tenants physically (separate clusters or trust domains). |
 | **Pipeline / Artifact / SBOM** | A pipeline is the automated CI/CD workflow that builds, tests, and deploys workloads and policy. An artifact is a build output (e.g., container image, Helm chart) promoted through it; an SBOM is the artifact's software bill of materials. |
-| **Acronyms** | MFA (multi-factor authentication); SIEM (security information and event management); RBAC (role-based access control); PBAC (pipeline-based access controls); PKI (public-key infrastructure); HSM/KMS (hardware security module / key management service); mTLS (mutual TLS); NTP (network time protocol); SAST/DAST (static / dynamic application security testing); SCA (software composition analysis); IaC (infrastructure as code). |
+| **Acronyms** | MFA (multi-factor authentication); SIEM (security information and event management); RBAC (role-based access control); PBAC (pipeline-based access controls); PKI (public-key infrastructure); HSM/KMS (hardware security module / key management service); mTLS (mutual TLS); NTP (network time protocol) .
 
 ---
 
