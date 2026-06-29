@@ -475,50 +475,6 @@ CI/CD security is not only scanning code; it is a full software supply-chain con
 
 **Lifecycle.** Versioning is semantic; material control changes increment the version. Only versions ratified by Security Architecture are binding. On ratification, an adoption timeline is published.
 
-**Change history.**
-| Version | Summary |
-|---|---|
-| 1.1 | Restructured to mirror the NV1 layout: eight-section spine, per-domain Standard / Mandatory controls (plain bullets) / framework basis / Minimum evidence. Removed control-ID, Level, and Base columns; removed the Risk Tiers section (differentiation now via the Maturity Model); reduced the control-mapping table to five columns; updated Purpose and per-domain wording to the NV1 framing. Governance, references, document control, and appendices moved to trailing annexes. Vendor-neutral; "shall/should" wording. |
-| 1.0 | NV1-aligned content with per-domain tables, IDs, tiers, and supplementary mapping column |
-| 0.1–0.9 | Earlier drafts |
 
----
 
-## Annex D — Per-platform conformance register (template)
 
-Maintained by platform owners; one column per in-scope platform. Status: ✅ native / 🟡 compensating control + exception / ❌ gap. Extend rows to cover all applicable controls.
-
-| Control (domain) | Platform 1 (mechanism) | Status | Platform 2 (mechanism) | Status | Platform n … |
-|---|---|---|---|---|---|
-| MFA for human access (3.2) | | | | | |
-| Federated joiner/mover/leaver (3.2) | | | | | |
-| Protected branches (3.1) | | | | | |
-| Secrets in approved vault (3.3) | | | | | |
-| Untrusted/trusted pipeline separation (3.4) | | | | | |
-| Approved dependency sources (3.5) | | | | | |
-| SAST/SCA/secret/IaC/container scanning (3.6) | | | | | |
-| Artifact signing and provenance (3.8) | | | | | |
-| SBOM generation (3.9) | | | | | |
-| Admission control for images (3.11) | | | | | |
-| Progressive multi-tenant deploy (3.12) | | | | | |
-| Central log forwarding (3.13) | | | | | |
-| Third-party action pinning (3.14) | | | | | |
-| Tenant segregation enforcement (3.16) | | | | | |
-| Model signing and eval gates (3.18) | | | | | |
-
----
-
-## Annex E — Coverage maps
-
-**OWASP CI/CD Security Cheat Sheet → this standard**
-
-| Cheat-sheet area | Domains |
-|---|---|
-| Secure Configuration (SCM + pipeline/execution environment) | 3.1, 3.4, 3.10 |
-| IAM (secrets, least privilege, identity lifecycle) | 3.2, 3.3 |
-| Managing Third-Party Code (dependencies, plug-ins) | 3.5, 3.14 |
-| Integrity Assurance | 3.8, 3.9 |
-| Visibility and Monitoring | 3.13, 3.17 |
-| Beyond the cheat sheet | 3.6, 3.7, 3.11, 3.12, 3.15, 3.16, 3.18 |
-
-**NV1 (3.1–3.15) → this standard.** Source→3.1, IAM→3.2, Secrets→3.3, Build→3.4, Dependency→3.5, Testing→3.6, Flow→3.7, Artifact→3.8, SBOM→3.9, IaC→3.10, Container→3.11, Deployment→3.12, Logging→3.13, Third-Party→3.14, Exception→3.15. Added beyond NV1: Tenant Segregation (3.16), Cross-Platform Conformance (3.17), AI/ML Pipeline (3.18).
