@@ -8,11 +8,11 @@
 
 ## 1. Purpose
 
-The purpose of this standard is to define mandatory security controls for software delivery pipelines from source-code commit through build, test, artifact creation, release, deployment, and production monitoring.
+The purpose of this control is to define mandatory security controls for software delivery pipelines from source-code commit through build, test, artifact creation, release, deployment, and production monitoring.
 
-A CI/CD security standard is required because CI/CD systems are part of the organization's software supply chain and can directly influence production code, infrastructure, secrets, artifacts, and deployments. NIST SP 800-204D focuses on integrating software supply-chain security into DevSecOps CI/CD pipelines and maps those strategies to SSDF practices. A weak pipeline can bypass many traditional controls because it can produce signed binaries, container images, infrastructure changes, and production deployments directly; the standard is therefore risk-based, auditable, and Zero Trust-aligned, applied consistently across every platform in use and every tenant served.
+A CI/CD security control is required because CI/CD systems are part of the organization's software supply chain and can directly influence production code, infrastructure, secrets, artifacts, and deployments. NIST SP 800-204D focuses on integrating software supply-chain security into DevSecOps CI/CD pipelines and maps those strategies to SSDF practices. A weak pipeline can bypass many traditional controls because it can produce signed binaries, container images, infrastructure changes, and production deployments directly; the standard is therefore risk-based, auditable, and Zero Trust-aligned, applied consistently across every platform in use and every tenant served.
 
-This standard shall apply to:
+This Control shall apply to:
 
 - Source-code repositories.
 - CI/CD platforms and orchestrators.
@@ -34,7 +34,7 @@ Out of scope (governed elsewhere): developer endpoint security; application/mode
 
 Every CI/CD implementation shall follow these principles.
 
-| Principle | Standard requirement |
+| Principle | Control requirement |
 |---|---|
 | Zero Trust | Every user, workload identity, agent, repository, artifact, and deployment path shall be explicitly verified before access or execution; no implicit trust from network location or a passing build. |
 | Least Privilege | Pipeline identities, service connections, repositories, and deployment roles shall hold only the permissions required for the specific job, time-bound where possible. |
