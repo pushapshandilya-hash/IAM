@@ -1,4 +1,4 @@
-# CI/CD Security Standard for an Organization
+# CI/CD Security Control for an Organization
 
 **Issued by:** Security Architecture  **Status:** Draft for review (not ratified)  **Version:** 1.1
 
